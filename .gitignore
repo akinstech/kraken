@@ -1,0 +1,15 @@
+# Config directory
+/config/
+
+.env
+
+#Logs
+log
+logs
+*.log
+
+node_modules
+
+npm-debug.log
+
+tmp
