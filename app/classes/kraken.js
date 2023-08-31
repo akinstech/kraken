@@ -9,6 +9,7 @@ import krakenArt from '../../data/kraken-ascii.js';
 class Kraken {
   constructor(config) {
     this.config = config;
+    console.log(this.config);
     this.ssh = new NodeSSH();
   }
 

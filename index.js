@@ -18,11 +18,11 @@ const kraken = new Kraken(config);
 global.App = {
   logFile: config.log.file,
   packageJson: require('./package.json')
-}
+};
 
 
-  // TODO: This loop should be implemented as a "task" that would be run on each server
-  (async () => {
+// TODO: This loop should be implemented as a "task" that would be run on each server
+(async () => {
     await kraken.init();
     // Check if environment exists
     if (!kraken.config.environments[environment]) {
@@ -48,4 +48,4 @@ global.App = {
     }
     log.info('Done sending SSH commands');
     process.exit(0);
-  })();
+})();

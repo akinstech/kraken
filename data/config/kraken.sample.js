@@ -1,31 +1,34 @@
-import 'dotenv/config';
+// TODO: Eliminate the need to include dotenv in this config file
+import * as dotenv from 'dotenv';
+
+dotenv.config({ path: './config/.env' });
 
 const config = {
   identity: {
-    user: 'node-deploy',
+    user: 'kraken-deploy',
     privatekey: process.env.SSH_privatekey,
     passphrase: process.env.SSH_passphrase,
   },
-  appName: 'myApp',
+  appName: 'testapp1',
   log: {
     file: './log/kraken.log',
   },
   environments: {
     dev: {
       description: 'Development',
-      appRoot: `/opt/nodejs/myAppdev`,
+      appRoot: `/opt/nodejs/testapp1`,
       webpackBuild: false,
       reloadApp: true,
       npmInstall: false,
-      runUser: 'node-run',
+      runUser: 'kraken-run',
       servers: [
         {
-          enabled: false,
-          host: 'docker1.akinstech.home'
+          enabled: true,
+          host: 'lnxapp01.sconet.ca.gov'
         },
         {
-          enabled: true,
-          host: 'docker2.akinstech.home'
+          enabled: false,
+          host: 'lnxapp02.sconet.ca.gov'
         },
       ]
     },
@@ -34,7 +37,7 @@ const config = {
       servers: [
         {
           enabled: true,
-          host: 'docker2.akinstech.home'
+          host: 'lnxapp01.sconet.ca.gov'
         }
       ]
     }
